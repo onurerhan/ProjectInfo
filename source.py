@@ -7,15 +7,15 @@ import configparser
 config = configparser.ConfigParser()
 config.read('config.ini')
 bot = telegram.Bot(token=config['DEFAULT']['telegram_api_key'])
-options = webdriver.ChromeOptions()
-options.add_argument('headless')
+options = webdriver.FirefoxOptions()
+options.add_argument('-headless')
 path = config['DEFAULT']['browser_path']
 
-lykke = webdriver.Chrome(executable_path=path, chrome_options=options)
+lykke = webdriver.Firefox(executable_path=path, firefox_options=options)
 lykke.get("https://www.lykke.com/")
-paribu = webdriver.Chrome(executable_path=path, chrome_options=options)
+paribu = webdriver.Firefox(executable_path=path, firefox_options=options)
 paribu.get("https://www.paribu.com/")
-xe = webdriver.Chrome(executable_path=path, chrome_options=options)
+xe = webdriver.Firefox(executable_path=path, firefox_options=options)
 xe.get("http://www.xe.com/currencyconverter/convert/?From=USD&To=TRY")
 
 
