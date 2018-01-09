@@ -5,7 +5,7 @@ import configparser
 
 
 config = configparser.ConfigParser()
-config.read('config.ini')
+config.read('C:/Users/Komputer/PycharmProjects/ProjectInfo/config.ini')
 bot = telegram.Bot(token=config['DEFAULT']['telegram_api_key'])
 options = webdriver.FirefoxOptions()
 options.add_argument('-headless')
@@ -33,7 +33,8 @@ difference = (lykke_usd * xe_usd) - paribu_tl
 print("lykke        " + str(lykke_usd * xe_usd))
 print("paribu       " + str(paribu_tl))
 print("difference   " + str(difference))
-if difference > paribu_tl * 0.0005:
-    bot.send_message(chat_id=config['DEFAULT']['chat_id'], text="lan al hemen")
+
+bot.send_message(chat_id=config['DEFAULT']['chat_id'], text="lykke:     {0}\nparibu:    {1}\nfark:      {2}".format(
+    str(lykke_usd * xe_usd), str(paribu_tl), str(difference)))
 
 close_browser()
