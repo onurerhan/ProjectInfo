@@ -5,7 +5,7 @@ import configparser
 
 
 config = configparser.ConfigParser()
-config.read('C:/Users/Komputer/PycharmProjects/ProjectInfo/config.ini')
+config.read('C:/Users/Komputer/PycharmProjects/ProjectInfo/config')
 bot = telegram.Bot(token=config['DEFAULT']['telegram_api_key'])
 options = webdriver.FirefoxOptions()
 options.add_argument('-headless')
