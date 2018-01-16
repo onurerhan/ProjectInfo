@@ -37,7 +37,7 @@ while True:
     if difference_prb_to_ly > difference_limit:
         difference_limit = difference_prb_to_ly
         bot.send_message(chat_id=config['DEFAULT']['chat_id'],
-                         text="paribu:     {0}\nlykke:    {1}\nfark:      {2}\nyüzde:   {3}"
+                         text="paribu: {0}\nlykke:  {1}\nfark:   {2}\nyüzde:  {3}"
                          .format(str(paribu_tl), str(lykke_tl), str(paribu_tl - lykke_tl), str((difference_limit - 1) * 100)))
 
     else:
