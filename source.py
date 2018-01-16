@@ -33,16 +33,12 @@ while True:
     paribu_header = paribu.title
     paribu_tl = float(''.join(filter(lambda x: x.isdigit(), paribu_header)))
 
-    difference_ly_to_prb = lykke_tl/paribu_tl
     difference_prb_to_ly = paribu_tl/lykke_tl
-    if difference_ly_to_prb > difference_limit or difference_prb_to_ly > difference_limit:
-        if difference_ly_to_prb > difference_limit:
-            difference_limit = difference_ly_to_prb
-        if difference_prb_to_ly > difference_limit:
-            difference_limit = difference_ly_to_prb
+    if difference_prb_to_ly > difference_limit:
+        difference_limit = difference_prb_to_ly
         bot.send_message(chat_id=config['DEFAULT']['chat_id'],
-                         text="lykke:     {0}\nparibu:    {1}\nfark:      {2}\nyüzde:   {3}"
-                         .format(str(lykke_tl), str(paribu_tl), str(lykke_tl - paribu_tl), str(difference_limit)))
+                         text="paribu:     {0}\nlykke:    {1}\nfark:      {2}\nyüzde:   {3}"
+                         .format(str(paribu_tl), str(lykke_tl), str(paribu_tl - lykke_tl), str((difference_limit - 1) * 100)))
 
     else:
         counter += 1
